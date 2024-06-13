@@ -1,7 +1,12 @@
 package br.com.alura.comex.model;
 
-public class Cliente {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "cliente")
+public class Cliente {
+    @Id  // indica que esse atributo é uma chave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // indica que é o banco de dados que vai gerar o ID
     private Long id;
 
     private String cpf;

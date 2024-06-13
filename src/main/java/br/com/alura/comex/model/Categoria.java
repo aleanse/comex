@@ -2,12 +2,12 @@ package br.com.alura.comex.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "categoria")
+@Entity  // indica que essa classe esta relacionada a uma tabela no db
+@Table(name = "categorias")
 public class Categoria {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id  // indica que esse atributo é uma chave primaria
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // indica que é o banco de dados que vai gerar o ID
     private Long id;
     private String nome;
     private String descricao;

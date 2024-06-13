@@ -1,5 +1,8 @@
 package br.com.alura.comex.model;
 
+import org.hibernate.annotations.ManyToAny;
+
+import javax.persistence.ManyToOne;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,6 +14,7 @@ public class Produto {
     private String descricao;
 
     private double preco;
+    @ManyToOne()
     private List<Categoria> categorias = new ArrayList<>();
 
 
