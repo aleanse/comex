@@ -1,20 +1,19 @@
 package br.com.alura.comex.dao.jpa;
 
 import br.com.alura.comex.model.Categoria;
+import br.com.alura.comex.model.Produto;
 
 import javax.persistence.EntityManager;
 
 public class JpaCategoriaDao {
+    private EntityManager em ;
 
-    private EntityManager manager;
-
-    public JpaCategoriaDao(EntityManager manager) {
-        this.manager = manager;
+    public JpaCategoriaDao(EntityManager em) {
+        this.em = em;
     }
 
-    public void cadastra(Categoria categoria) {
-        manager.getTransaction().begin();
-        manager.persist(categoria);
-        manager.getTransaction().commit();
+    public void cadastrar(Categoria categoria){
+        this.em.persist(categoria);
     }
+
 }

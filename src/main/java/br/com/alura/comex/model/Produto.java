@@ -2,21 +2,24 @@ package br.com.alura.comex.model;
 
 import org.hibernate.annotations.ManyToAny;
 
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@Entity
+@Table(name="produto")
 public class Produto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
     private String descricao;
 
     private double preco;
-    @ManyToOne()
-    private List<Categoria> categorias = new ArrayList<>();
-
+    @ManyToOne
+    private Categoria categoria;
 
     public Long getId() {
         return id;
@@ -50,19 +53,8 @@ public class Produto {
         this.preco = preco;
     }
 
-    public List<Categoria> getCategorias() {
-        return Collections.unmodifiableList(categorias);
-    }
-
-    public void adicionaCategoria(Categoria categoria) {
-        // verifica se a categoria já foi adicionada com base no id
-        for (Categoria categoriaDaLista : categorias) {
-            if (categoriaDaLista.getId().equals(categoria.getId())) {
-                return;
-            }
-        }
-
-        this.categorias.add(categoria);
+    public void setCategoria(Categoria categorias) {
+        this.categoria = categorias;
     }
 
     @Override
@@ -72,7 +64,7 @@ public class Produto {
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", preco=" + preco +
-                ", categorias=" + categorias +
+                ", categorias=" + categoria +
                 '}';
     }
 }

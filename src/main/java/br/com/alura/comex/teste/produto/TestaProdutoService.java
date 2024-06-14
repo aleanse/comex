@@ -28,11 +28,11 @@ public class TestaProdutoService {
             produto.setPreco(i * 10.0);
 
             // Adicionando as categorias ao produto
-            produto.adicionaCategoria(eletronicos);
-            produto.adicionaCategoria(livros);
-            produto.adicionaCategoria(roupas);
-            produto.adicionaCategoria(casaECozinha);
-            produto.adicionaCategoria(esportesELazer);
+//            produto.adicionaCategoria(eletronicos);
+//            produto.adicionaCategoria(livros);
+//            produto.adicionaCategoria(roupas);
+//            produto.adicionaCategoria(casaECozinha);
+//            produto.adicionaCategoria(esportesELazer);
 
             service.efetuaCadastroDeProduto(produto);
         }

@@ -5,11 +5,14 @@ import br.com.alura.comex.banco.DatabaseUtils;
 import br.com.alura.comex.model.Produto;
 import br.com.alura.comex.model.Categoria;
 
+import javax.persistence.EntityManager;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProdutoDao {
+
+
 
     public void cadastra(Produto produto) {
         String sql = "insert into produto (nome, descricao, preco) values (?, ?, ?)";
@@ -103,7 +106,7 @@ public class ProdutoDao {
                     categoria.setId(categoriaId);
                     categoria.setNome(resultSet.getString("c.nome"));
 
-                    produto.adicionaCategoria(categoria);
+                    //produto.adicionaCategoria(categoria);
                 }
             }
 
@@ -134,11 +137,11 @@ public class ProdutoDao {
         try (Connection conexao = new ConnectionFactory().criaConexao()) {
             PreparedStatement comando = conexao.prepareStatement(sql);
 
-            for (Categoria categoria : produto.getCategorias()) {
-                comando.setLong(1, produto.getId());
-                comando.setLong(2, categoria.getId());
-                comando.execute();
-            }
+//            for (Categoria categoria : produto.getCategorias()) {
+//                comando.setLong(1, produto.getId());
+//                comando.setLong(2, categoria.getId());
+//                comando.execute();
+//            }
 
             comando.close();
         } catch (SQLException e) {
@@ -174,7 +177,7 @@ public class ProdutoDao {
                     categoria.setId(categoriaId);
                     categoria.setNome(resultSet.getString("c.nome"));
 
-                    produto.adicionaCategoria(categoria);
+                    //produto.adicionaCategoria(categoria);
                 }
             }
 
