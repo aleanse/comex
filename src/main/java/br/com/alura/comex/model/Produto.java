@@ -3,6 +3,7 @@ package br.com.alura.comex.model;
 import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Produto {
 
     private String nome;
     private String descricao;
+    private LocalDate dataCadastro = LocalDate.now();
 
     private double preco;
     @ManyToOne
