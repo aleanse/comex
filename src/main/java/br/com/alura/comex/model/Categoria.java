@@ -3,7 +3,7 @@ package br.com.alura.comex.model;
 import javax.persistence.*;
 
 @Entity  // indica que essa classe esta relacionada a uma tabela no db
-@Table(name = "categorias")
+@Table(name = "categoria")
 public class Categoria {
 
     @Id  // indica que esse atributo é uma chave primaria

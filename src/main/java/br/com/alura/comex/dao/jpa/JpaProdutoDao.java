@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 public class JpaProdutoDao {
-    private EntityManager em ;
+    private  EntityManager em ;
 
     public JpaProdutoDao(EntityManager em) {
         this.em = em;
@@ -23,7 +23,7 @@ public class JpaProdutoDao {
 
         this.em.remove(produto);
     }
-    public Produto buscaPorId(Long id){
+    public  Produto buscaPorId(Long id){
         return em.find(Produto.class,id);
     }
 }

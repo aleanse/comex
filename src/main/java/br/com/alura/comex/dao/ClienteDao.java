@@ -34,7 +34,6 @@ public class ClienteDao {
 
     private Cliente montaCliente(ResultSet resultSet) throws SQLException {
         Cliente cliente = new Cliente();
-        cliente.setId(resultSet.getLong("id"));
         cliente.setNome(resultSet.getString("nome"));
         cliente.setCpf(resultSet.getString("cpf"));
         cliente.setEmail(resultSet.getString("email"));
@@ -65,9 +64,6 @@ public class ClienteDao {
             comando.setString(7, cliente.getCidade());
             comando.setString(8, cliente.getEstado());
             comando.setString(9, cliente.getCep());
-
-            cliente.setId(DatabaseUtils.recuperaIdGerado(comando));
-
             comando.execute();
             comando.close();
         } catch (SQLException e) {

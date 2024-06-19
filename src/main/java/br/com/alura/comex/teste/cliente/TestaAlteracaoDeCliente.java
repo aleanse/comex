@@ -7,7 +7,6 @@ public class TestaAlteracaoDeCliente {
 
     public static void main(String[] args) {
         Cliente novoCliente = new Cliente();
-        novoCliente.setId(4L);
         novoCliente.setNome("Grupo Quem Disse que Acabou");
         novoCliente.setEmail("grupoqdqa@gmail.com");
         novoCliente.setTelefone("(61) 99999-9999");

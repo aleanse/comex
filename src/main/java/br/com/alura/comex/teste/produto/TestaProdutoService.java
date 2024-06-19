@@ -25,7 +25,7 @@ public class TestaProdutoService {
             Produto produto = new Produto();
             produto.setNome("Produto " + i);
             produto.setDescricao("Descrição do Produto " + i);
-            produto.setPreco(i * 10.0);
+
 
             // Adicionando as categorias ao produto
 //            produto.adicionaCategoria(eletronicos);

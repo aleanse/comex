@@ -21,7 +21,6 @@ public class ProdutoDao {
             PreparedStatement comando = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             comando.setString(1, produto.getNome());
             comando.setString(2, produto.getDescricao());
-            comando.setDouble(3, produto.getPreco());
 
             comando.execute();
             Long idGerado = DatabaseUtils.recuperaIdGerado(comando);
@@ -42,7 +41,6 @@ public class ProdutoDao {
             PreparedStatement comando = conexao.prepareStatement(sql);
             comando.setString(1, produto.getNome());
             comando.setString(2, produto.getDescricao());
-            comando.setDouble(3, produto.getPreco());
             comando.setLong(4, produto.getId());
 
             comando.execute();
@@ -95,7 +93,7 @@ public class ProdutoDao {
                     produto.setId(produtoId);
                     produto.setNome(resultSet.getString("p.nome"));
                     produto.setDescricao(resultSet.getString("p.descricao"));
-                    produto.setPreco(resultSet.getDouble("p.preco"));
+
 
                     produtos.add(produto);
                 }
@@ -168,7 +166,7 @@ public class ProdutoDao {
                     produto.setId(resultSet.getLong("p.id"));
                     produto.setNome(resultSet.getString("p.nome"));
                     produto.setDescricao(resultSet.getString("p.descricao"));
-                    produto.setPreco(resultSet.getDouble("p.preco"));
+
                 }
 
                 Long categoriaId = resultSet.getLong("c.id");

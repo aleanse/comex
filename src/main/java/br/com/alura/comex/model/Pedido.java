@@ -1,16 +1,13 @@
 package br.com.alura.comex.model;
 
-import org.hibernate.annotations.ManyToAny;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Entity
-@Table(name="pedidos")
+@Table(name = "pedido")
 public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +15,9 @@ public class Pedido {
 
     private String nome;
     private String descricao;
+    @Column(name = "valor_total")
     private BigDecimal valorTotal;
+    @Column(name = "data_pedido")
     private LocalDate data = LocalDate.now();
 
     @ManyToOne
@@ -38,6 +37,7 @@ public class Pedido {
     public void adicionarItem(ItemPedido item){
         item.setPedido(this);
         this.itens.add(item);
+
     }
 
     public Long getId() {

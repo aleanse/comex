@@ -10,6 +10,7 @@ import br.com.alura.comex.utils.JPAUtil;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.math.BigDecimal;
 
 public class TestaJpa {
 
@@ -20,7 +21,7 @@ public class TestaJpa {
         Produto churrasco = new Produto();
         churrasco.setDescricao("Muito bom");
         churrasco.setNome("churrasco");
-        churrasco.setPreco(2000);
+        churrasco.setPreco(new BigDecimal(2000));
         churrasco.setCategoria(comida);
 
 

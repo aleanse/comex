@@ -1,7 +1,4 @@
 package br.com.alura.comex.model;
-
-import org.hibernate.annotations.ManyToAny;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
