@@ -3,6 +3,7 @@ package br.com.alura.comex.model;
 import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,7 +20,7 @@ public class Produto {
     private String descricao;
     private LocalDate dataCadastro = LocalDate.now();
 
-    private double preco;
+    private BigDecimal preco;
     @ManyToOne
     private Categoria categoria;
 
@@ -47,11 +48,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public double getPreco() {
+    public BigDecimal getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
 

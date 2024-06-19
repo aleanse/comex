@@ -24,9 +24,20 @@ public class Pedido {
     @ManyToOne
     private Cliente cliente;
 
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itens = new ArrayList<>();
+
+    public Pedido(){
+
+    }
+
     public Pedido(Cliente cliente){
         this.cliente = cliente;
 
+    }
+    public void adicionarItem(ItemPedido item){
+        item.setPedido(this);
+        this.itens.add(item);
     }
 
     public Long getId() {
