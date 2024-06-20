@@ -5,21 +5,20 @@ import br.com.alura.comex.dao.jpa.JpaCategoriaDao;
 import br.com.alura.comex.dao.jpa.JpaClienteDao;
 import br.com.alura.comex.dao.jpa.JpaPedidoDao;
 import br.com.alura.comex.dao.jpa.JpaProdutoDao;
-import br.com.alura.comex.model.Categoria;
-import br.com.alura.comex.model.Cliente;
-import br.com.alura.comex.model.Pedido;
-import br.com.alura.comex.model.ItemPedido;
-import br.com.alura.comex.model.Produto;
+import br.com.alura.comex.model.*;
 import br.com.alura.comex.utils.JPAUtil;
+import com.mysql.cj.x.protobuf.MysqlxExpr;
+
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class TestaCadastroJpa {
     public static void main(String[] args) {
         Cadastrar();
         EntityManager entityManager = JPAUtil.getEntityManager();
         JpaProdutoDao jpaProdutoDao = new JpaProdutoDao(entityManager);
-        Produto produto = jpaProdutoDao.buscaPorId(1l);
+        Produto produto = jpaProdutoDao.buscaPorId(21l);
         Cliente cliente = new Cliente();
         cliente.setNome("aleanse");
         cliente.setEstado("Ma");
@@ -32,13 +31,18 @@ public class TestaCadastroJpa {
         pedido.adicionarItem(new ItemPedido(10,pedido,produto));
         JpaPedidoDao jpaPedidoDao = new JpaPedidoDao(entityManager);
         entityManager.getTransaction().begin();
-
         JpaClienteDao jpaClienteDao = new JpaClienteDao(entityManager);
         jpaClienteDao.cadastrar(cliente);
-
         jpaPedidoDao.cadastrar(pedido);
         entityManager.getTransaction().commit();
+        List<RelatorioDeVendasVo> relatorio = jpaPedidoDao.relatorioDeVendas();
+        for(Object[] obj : relatorio){
+            System.out.println(obj[0]);
+            System.out.println(obj[1]);
+            System.out.println(obj[2]);
+        }
         entityManager.close();
+
 
 
 
