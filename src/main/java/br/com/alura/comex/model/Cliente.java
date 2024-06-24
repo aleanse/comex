@@ -8,6 +8,8 @@ public class Cliente {
     @Id  // indica que esse atributo é uma chave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY) // indica que é o banco de dados que vai gerar o ID
     private Long id;
+    @Embedded
+    private DadosPessoais dadosPessoais;
 
     private String cpf;
     private String nome;
@@ -17,6 +19,13 @@ public class Cliente {
     private String cidade;
     private String estado;
     private String cep;
+    public Cliente(String nome, String cpf){
+        this.dadosPessoais = new DadosPessoais(nome,cpf);
+    }
+
+    public DadosPessoais getDadosPessoais() {
+        return dadosPessoais;
+    }
 
     public Long getId() {
         return id;

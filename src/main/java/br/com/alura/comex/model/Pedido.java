@@ -20,7 +20,7 @@ public class Pedido {
     @Column(name = "data_pedido")
     private LocalDate data = LocalDate.now();
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;
 
     @OneToMany(mappedBy = "pedido",cascade = CascadeType.ALL)

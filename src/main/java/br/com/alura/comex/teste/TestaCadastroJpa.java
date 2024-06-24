@@ -18,7 +18,7 @@ public class TestaCadastroJpa {
         Cadastrar();
         EntityManager entityManager = JPAUtil.getEntityManager();
         JpaProdutoDao jpaProdutoDao = new JpaProdutoDao(entityManager);
-        Produto produto = jpaProdutoDao.buscaPorId(21l);
+        Produto produto = jpaProdutoDao.buscaPorId(24l);
         Cliente cliente = new Cliente();
         cliente.setNome("aleanse");
         cliente.setEstado("Ma");
@@ -36,11 +36,8 @@ public class TestaCadastroJpa {
         jpaPedidoDao.cadastrar(pedido);
         entityManager.getTransaction().commit();
         List<RelatorioDeVendasVo> relatorio = jpaPedidoDao.relatorioDeVendas();
-        for(Object[] obj : relatorio){
-            System.out.println(obj[0]);
-            System.out.println(obj[1]);
-            System.out.println(obj[2]);
-        }
+        relatorio.forEach(System.out::println);
+
         entityManager.close();
 
 

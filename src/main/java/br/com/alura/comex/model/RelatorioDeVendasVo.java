@@ -24,4 +24,13 @@ public class RelatorioDeVendasVo {
     public LocalDate getDataUltimaVenda() {
         return dataUltimaVenda;
     }
+
+    @Override
+    public String toString() {
+        return "RelatorioDeVendasVo{" +
+                "nomeProduto='" + nomeProduto + '\'' +
+                ", quantidadeVendida=" + quantidadeVendida +
+                ", dataUltimaVenda=" + dataUltimaVenda +
+                '}';
+    }
 }

@@ -21,6 +21,7 @@ public class Produto {
     private LocalDate dataCadastro = LocalDate.now();
 
     private BigDecimal preco;
+
     @ManyToOne
     private Categoria categoria;
 
