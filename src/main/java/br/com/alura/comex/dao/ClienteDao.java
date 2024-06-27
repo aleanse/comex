@@ -33,9 +33,7 @@ public class ClienteDao {
     }
 
     private Cliente montaCliente(ResultSet resultSet) throws SQLException {
-        Cliente cliente = new Cliente();
-        cliente.setNome(resultSet.getString("nome"));
-        cliente.setCpf(resultSet.getString("cpf"));
+        Cliente cliente = new Cliente("nome","cpf");
         cliente.setEmail(resultSet.getString("email"));
         cliente.setTelefone(resultSet.getString("telefone"));
         cliente.setLogradouro(resultSet.getString("logradouro"));

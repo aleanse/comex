@@ -19,11 +19,9 @@ public class TestaCadastroJpa {
         EntityManager entityManager = JPAUtil.getEntityManager();
         JpaProdutoDao jpaProdutoDao = new JpaProdutoDao(entityManager);
         Produto produto = jpaProdutoDao.buscaPorId(24l);
-        Cliente cliente = new Cliente();
-        cliente.setNome("aleanse");
+        Cliente cliente = new Cliente("aleanse","029384");
         cliente.setEstado("Ma");
         cliente.setCep("43224");
-        cliente.setCpf("029384");
         cliente.setCidade("são-luis");
         cliente.setLogradouro("condominio");
         cliente.setEmail("aleanselima@gmail.com");
@@ -37,7 +35,6 @@ public class TestaCadastroJpa {
         entityManager.getTransaction().commit();
         List<RelatorioDeVendasVo> relatorio = jpaPedidoDao.relatorioDeVendas();
         relatorio.forEach(System.out::println);
-
         entityManager.close();
 
 

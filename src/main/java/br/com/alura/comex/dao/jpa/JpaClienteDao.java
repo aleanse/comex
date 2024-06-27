@@ -12,11 +12,14 @@ public class JpaClienteDao {
         this.em = entityManager;
     }
 
-    public void JpaPedidoDaoo(EntityManager em) {
+    public void JpaPedidoDao(EntityManager em) {
         this.em = em;
     }
 
     public void cadastrar(Cliente cliente){
         this.em.persist(cliente);
+    }
+    public void atualizar(Cliente cliente){
+        this.em.merge(cliente);
     }
 }

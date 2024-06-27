@@ -43,16 +43,6 @@ public class JpaPedidoDao {
                 "ORDER BY SUM(item.quantidade) DESC ";
         return em.createQuery(jpql, RelatorioDeVendasVo.class).getResultList();
     }
-    public List<Produto> buscarPorParametros(String nome,
-                                             BigDecimal preco,
-                                             LocalDate dataCadastro){
-        CriteriaBuilder builder =  em.getCriteriaBuilder();
-        CriteriaQuery<Produto> query =  builder.createQuery(Produto.class);
-        Root<Produto> from = query.from(Produto.class);
-
-
-
-    }
 
 
 }
