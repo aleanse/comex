@@ -22,6 +22,12 @@ public class Produto {
 
     private BigDecimal preco;
 
+    public Produto(String nome, BigDecimal preco, Categoria categoria) {
+        this.nome = nome;
+        this.preco = preco;
+        this.categoria = categoria;
+    }
+
     @ManyToOne
     private Categoria categoria;
 

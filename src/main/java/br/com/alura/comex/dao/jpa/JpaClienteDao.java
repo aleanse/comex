@@ -26,7 +26,7 @@ public class JpaClienteDao {
         return em.createQuery(jpql, Cliente.class).getResultList();
     }
 
-    public void deletarClientePorId(int id){
+    public void deletarClientePorId(Long id){
         Cliente cliente = em.find(Cliente.class, id);
         em.remove(cliente);
     }

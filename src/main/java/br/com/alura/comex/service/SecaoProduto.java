@@ -1,32 +1,33 @@
 package br.com.alura.comex.service;
 
 import br.com.alura.comex.dao.jpa.JpaClienteDao;
+import br.com.alura.comex.dao.jpa.JpaProdutoDao;
 import br.com.alura.comex.model.Cliente;
+import br.com.alura.comex.model.Produto;
+
 import javax.persistence.EntityManager;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
-public class SecaoCliente {
-
+public class SecaoProduto {
     static EntityManager em;
     Scanner scanner = new Scanner(System.in);
 
-    public SecaoCliente(EntityManager entityManager) {
+    public SecaoProduto(EntityManager entityManager) {
         this.em = entityManager;
 
     }
-
-    public Cliente cadastraCliente() {
-        JpaClienteDao jpaClienteDao = new JpaClienteDao(em);
+    public Produto cadastraProduto() {
+        JpaProdutoDao jpaProdutoDao = new JpaProdutoDao(em);
         System.out.println("nome:");
         String nome = scanner.next();
-        System.out.println("cpf:");
-        String cpf = scanner.next();
-        Cliente cliente = new Cliente(nome, cpf);
+        System.out.println("preço:");
+        BigDecimal preco = scanner.next();
+        String categoria =  scanner.next();
+        Produto produto = new Produto(nome,preco,categoria);
         while (true) {
-            System.out.println("digite o email ou [1] para finalizar");
+            System.out.println("digite a descrição ou [1] para finalizar");
             String item = scanner.next();
             int opcao = 0;
             try {
@@ -37,77 +38,13 @@ public class SecaoCliente {
             if (opcao == 1) {
                 break;
             } else {
-                cliente.setEmail(item);
+                produto.setDescricao(item);
             }
-            System.out.println("digite o telefone ou [1] para finalizar");
-            item = scanner.next();
-            try {
-                opcao = Integer.parseInt(item);
-
-            } catch (NumberFormatException e) {
-            }
-            if (opcao == 1) {
-                break;
-            } else {
-                cliente.setTelefone(item);
-            }
-            System.out.println("digite o logradouro ou [1] para finalizar");
-            item = scanner.next();
-            try {
-                opcao = Integer.parseInt(item);
-
-            } catch (NumberFormatException e) {
-            }
-            if (opcao == 1) {
-                break;
-            } else {
-                cliente.setLogradouro(item);
-            }
-
-            System.out.println("digite a cidade ou [1] para finalizar");
-            item = scanner.next();
-            try {
-                opcao = Integer.parseInt(item);
-
-            } catch (NumberFormatException e) {
-            }
-            if (opcao == 1) {
-                break;
-            } else {
-                cliente.setCidade(item);
-            }
-
-            System.out.println("digite o estado ou [1] para finalizar");
-            item = scanner.next();
-            try {
-                opcao = Integer.parseInt(item);
-
-            } catch (NumberFormatException e) {
-            }
-            if (opcao == 1) {
-                break;
-            } else {
-                cliente.setEstado(item);
-            }
-            System.out.println("digite o cep ou [1] para finalizar");
-            item = scanner.next();
-            try {
-                opcao = Integer.parseInt(item);
-
-            } catch (NumberFormatException e) {
-            }
-            if (opcao == 1) {
-                break;
-            } else {
-                cliente.setCep(item);
-                break;
-            }
-        }
         em.getTransaction().begin();
-        jpaClienteDao.cadastrar(cliente);
+        jpaProdutoDao.cadastrar(produto);
         em.getTransaction().commit();
         System.out.println("Cliente cadastrado com sucesso!");
-        return cliente;
+        return produto;
     }
 
     public void imprimirClientes() {
