@@ -1,5 +1,6 @@
 package br.com.alura.comex.dao.jpa;
 
+import br.com.alura.comex.model.Cliente;
 import br.com.alura.comex.model.Produto;
 
 import javax.persistence.EntityManager;
@@ -14,6 +15,10 @@ public class JpaProdutoDao {
 
     public void cadastrar(Produto produto){
         this.em.persist(produto);
+    }
+    public List<Produto> buscarTodosProdutos() {
+        String jpql = "SELECT c FROM Produto c";
+        return em.createQuery(jpql, Produto.class).getResultList();
     }
     public void atualizar(Produto produto){
         this.em.merge(produto);

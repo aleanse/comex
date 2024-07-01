@@ -18,7 +18,7 @@ public class SecaoCliente {
 
     }
 
-    public Cliente cadastraCliente() {
+    public void cadastraCliente() {
         JpaClienteDao jpaClienteDao = new JpaClienteDao(em);
         System.out.println("nome:");
         String nome = scanner.next();
@@ -107,7 +107,6 @@ public class SecaoCliente {
         jpaClienteDao.cadastrar(cliente);
         em.getTransaction().commit();
         System.out.println("Cliente cadastrado com sucesso!");
-        return cliente;
     }
 
     public void imprimirClientes() {
