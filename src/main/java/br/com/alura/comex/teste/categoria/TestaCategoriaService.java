@@ -2,7 +2,6 @@ package br.com.alura.comex.teste.categoria;
 
 import br.com.alura.comex.exception.EntidadeNaoEncontradaException;
 import br.com.alura.comex.model.Categoria;
-import br.com.alura.comex.service.CategoriaService;
 
 public class TestaCategoriaService {
 

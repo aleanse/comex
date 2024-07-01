@@ -4,7 +4,6 @@ import br.com.alura.comex.dao.CategoriaDao;
 import br.com.alura.comex.exception.EntidadeNaoEncontradaException;
 import br.com.alura.comex.model.Produto;
 import br.com.alura.comex.model.Categoria;
-import br.com.alura.comex.service.ProdutoService;
 
 public class TestaProdutoService {
 

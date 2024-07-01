@@ -1,7 +1,6 @@
 package br.com.alura.comex.teste.cliente;
 
 import br.com.alura.comex.model.Cliente;
-import br.com.alura.comex.service.ClienteService;
 
 import java.sql.SQLException;
 import java.util.List;
