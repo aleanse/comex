@@ -20,6 +20,10 @@ public class JpaProdutoDao {
         String jpql = "SELECT c FROM Produto c";
         return em.createQuery(jpql, Produto.class).getResultList();
     }
+    public void deletarClientePorId(Long id){
+        Produto produto = em.find(Produto.class, id);
+        em.remove(produto);
+    }
     public void atualizar(Produto produto){
         this.em.merge(produto);
     }
@@ -27,6 +31,10 @@ public class JpaProdutoDao {
         produto = em.merge(produto);
 
         this.em.remove(produto);
+    }
+    public void deletarProdutoPorId(Long id){
+        Produto produto = em.find(Produto.class, id);
+        em.remove(produto);
     }
     public  Produto buscaPorId(Long id){
         return em.find(Produto.class,id);

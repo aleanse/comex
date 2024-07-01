@@ -76,29 +76,36 @@ public class SecaoProduto {
         }
     }
 
-        public void deletarClientes () {
-            JpaClienteDao jpaClienteDao = new JpaClienteDao(em);
-            List<Cliente> listaClientes = jpaClienteDao.buscarTodosClientes();
-            System.out.println("Lista de Clientes:");
-            for (Cliente cliente : listaClientes) {
-                System.out.println("ID: " + cliente.getId());
-                System.out.println("Nome: " + cliente.getNome());
-                System.out.println("CPF: " + cliente.getCpf());
-                System.out.println("---------------------------------------");
-            }
-            Long opc;
-            while (true) {
-                System.out.print("Digite o ID do cliente que deseja deletar: ");
-                opc = scanner.nextLong();
-                if (SecaoCliente.clienteExiste(opc)) {
-                    break;
-                } else {
-                    System.out.println("Cliente com ID " + opc + " não encontrado. Tente novamente.");
-                }
-            }
-            em.getTransaction().begin();
-            jpaClienteDao.deletarClientePorId(opc);
-            System.out.println("Cliente deletado com sucesso");
-            em.getTransaction().commit();
+    public void deletarProduto () {
+        JpaProdutoDao jpaProdutoDao = new JpaProdutoDao(em);
+        List<Produto> listaProdutos = jpaProdutoDao.buscarTodosProdutos();
+        System.out.println("Lista de Produtos:");
+        for (Produto produto : listaProdutos) {
+            System.out.println("ID: " + produto.getId());
+            System.out.println("Nome: " + produto.getNome());
+            System.out.println("Preço: " + produto.getPreco());
+            System.out.println("Categoria: " + produto.getCategoria());
+            System.out.println("---------------------------------------");
         }
+        Long opc;
+        while (true) {
+            System.out.print("Digite o ID do Produto que deseja deletar: ");
+            opc = scanner.nextLong();
+            if (SecaoProduto.produtoExiste(opc)) {
+                break;
+            } else {
+                System.out.println("Produto com ID " + opc + " não encontrado. Tente novamente.");
+            }
+        }
+        em.getTransaction().begin();
+        jpaProdutoDao.deletarProdutoPorId(opc);
+        System.out.println("Produto deletado com sucesso");
+        em.getTransaction().commit();
     }
+    public static boolean produtoExiste(Long opc){
+        Produto produto = em.find(Produto.class, opc);
+        return produto != null;
+    }
+
+
+}

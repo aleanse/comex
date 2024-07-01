@@ -3,6 +3,7 @@ package br.com.alura.comex;
 import br.com.alura.comex.dao.jpa.JpaClienteDao;
 import br.com.alura.comex.dao.jpa.JpaProdutoDao;
 import br.com.alura.comex.model.Cliente;
+import br.com.alura.comex.service.SecaoCategoria;
 import br.com.alura.comex.service.SecaoCliente;
 import br.com.alura.comex.service.SecaoProduto;
 import br.com.alura.comex.utils.JPAUtil;
@@ -20,10 +21,7 @@ public class Main {
             System.out.println("""
                 [1] Seção cliente             
                 [2] Seção produto
-                [5] Ver produtos
-                [6] Deletar produtos
-                [7] Cadastrar categoria
-                [8] Ver categorias
+                [3] Seção categoria
                 [0] Finalizar
                 """);
             opcao = scanner.nextInt();
@@ -47,7 +45,6 @@ public class Main {
                 if(opcao == 3){
                     SecaoCliente secaoCliente = new SecaoCliente(entityManager);
                     secaoCliente.deletarClientes();
-
                 }
                 if(opcao == 0){
                     break;
@@ -79,6 +76,44 @@ public class Main {
                 }
                 if(opcao == 2 ){
                     secaoProduto.imprimirProdutos();
+                }
+                if(opcao == 3 ){
+                    secaoProduto.deletarProduto();
+                }
+                if(opcao == 0){
+                    break;
+                }
+                System.out.println("""
+                        [1] Voltar a tela inicial?
+                        [2] Finalizar
+                        """);
+                opcao = scanner.nextInt();
+                if(opcao == 1){
+                    continue;
+                }
+                if(opcao == 2){
+                    entityManager.close();
+                    break;
+                }
+
+            }
+            if (opcao == 3){
+                System.out.println("""
+                        [1] Cadastrar Categoria
+                        [2] Ver categorias cadastradas
+                        [3] Deletar categoria
+                        [0] Finalizar
+                        """);
+                opcao = scanner.nextInt();
+                SecaoCategoria secaoCategoria = new SecaoCategoria(entityManager);
+                if(opcao == 1){
+                    secaoCategoria.cadastraCategoria();
+                }
+                if(opcao == 2 ){
+                    secaoCategoria.imprimirCategorias();
+                }
+                if(opcao == 3 ){
+                    secaoCategoria.deletarCategoria();
                 }
                 if(opcao == 0){
                     break;

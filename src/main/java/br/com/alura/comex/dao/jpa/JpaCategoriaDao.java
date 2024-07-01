@@ -1,6 +1,7 @@
 package br.com.alura.comex.dao.jpa;
 
 import br.com.alura.comex.model.Categoria;
+import br.com.alura.comex.model.Cliente;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -15,6 +16,14 @@ public class JpaCategoriaDao {
     public void cadastrar(Categoria categoria){
 
         this.em.persist(categoria);
+    }
+    public List<Categoria> buscarTodasCategorias() {
+        String jpql = "SELECT c FROM Categoria c";
+        return em.createQuery(jpql, Categoria.class).getResultList();
+    }
+    public void deletarCategoriaPorId(Long id){
+        Categoria categoria = em.find(Categoria.class, id);
+        em.remove(categoria);
     }
     public void atualizar(Categoria categoria){
         this.em.merge(categoria);
