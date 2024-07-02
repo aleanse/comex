@@ -6,7 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="comex" />
+        <module name="pedido" />
+        <module name="cliente" />
+        <module name="main" />
+        <module name="infra" />
+        <module name="produto" />
       </profile>
     </annotationProcessing>
   </component>
