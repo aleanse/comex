@@ -79,7 +79,5 @@ Os DAOs são responsáveis por encapsular a lógica de acesso ao banco de dados.
 - **deletarProdutoPorId(Long id)**: Deleta um produto pelo ID.
 - **atualizar(Produto produto)**: Atualiza um produto existente.
 
-## Conclusão
 
-O projeto Comex demonstra a utilização de JPA e Hibernate para gerenciamento de persistência em uma aplicação Java. Com a configuração adequada do Maven e do `persistence.xml`, o sistema é capaz de realizar operações CRUD de maneira eficiente e organizada. As classes de entidade e os DAOs proporcionam uma estrutura clara e funcional para o desenvolvimento de aplicações robustas e escaláveis.
 
