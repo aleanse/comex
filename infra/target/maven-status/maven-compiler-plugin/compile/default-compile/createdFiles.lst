@@ -1,0 +1,4 @@
+aleanse\exception\EntidadeNaoEncontradaException.class
+aleanse\banco\DatabaseUtils.class
+aleanse\banco\ConnectionFactory.class
+aleanse\utils\JPAUtil.class

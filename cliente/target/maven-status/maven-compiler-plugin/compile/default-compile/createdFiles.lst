@@ -1,0 +1,5 @@
+aleanse\service\SecaoCliente.class
+aleanse\model\Cliente.class
+aleanse\dao\jpa\JpaClienteDao.class
+aleanse\dao\ClienteDao.class
+aleanse\model\DadosPessoais.class

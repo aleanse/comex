@@ -1,0 +1,4 @@
+aleanse\model\Pedido.class
+aleanse\model\ItemPedido.class
+aleanse\dao\jpa\JpaPedidoDao.class
+aleanse\model\RelatorioDeVendasVo.class

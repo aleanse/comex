@@ -1,12 +1,5 @@
 package br.com.alura.comex;
 
-import br.com.alura.comex.dao.jpa.JpaClienteDao;
-import br.com.alura.comex.dao.jpa.JpaProdutoDao;
-import br.com.alura.comex.model.Cliente;
-import br.com.alura.comex.service.SecaoCategoria;
-import br.com.alura.comex.service.SecaoCliente;
-import br.com.alura.comex.service.SecaoProduto;
-import br.com.alura.comex.utils.JPAUtil;
 
 import javax.persistence.EntityManager;
 import java.util.Scanner;
@@ -71,8 +64,8 @@ public class Main {
                         """);
                 opcao = scanner.nextInt();
                 SecaoProduto secaoProduto = new SecaoProduto(entityManager);
-                if(opcao == 1){
-                    secaoProduto.cadastraProduto();
+                    if(opcao == 1){
+                        secauto.cadastraProduto();
                 }
                 if(opcao == 2 ){
                     secaoProduto.imprimirProdutos();

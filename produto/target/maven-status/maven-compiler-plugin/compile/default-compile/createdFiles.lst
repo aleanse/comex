@@ -1,0 +1,6 @@
+aleanse\dao\JpaCategoriaDao.class
+aleanse\dao\JpaProdutoDao.class
+aleanse\model\Produto.class
+aleanse\service\SecaoCategoria.class
+aleanse\model\Categoria.class
+aleanse\service\SecaoProduto.class
